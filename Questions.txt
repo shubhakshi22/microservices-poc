@@ -1,0 +1,11 @@
+Questions : 
+ 
+What is the diff b/w public private default protected return type
+why to make any class as private
+Use of Runtime exception and why to extend it to any class to make it exception friendly
+How generics works like ResponseBody<ResposeDTO>
+How this line treated as single line : "%s not found with the given input data %s : '%s'",
+
+Why to make injected properties as final  eg : private final IAccountsService iAccountsService;
+
+

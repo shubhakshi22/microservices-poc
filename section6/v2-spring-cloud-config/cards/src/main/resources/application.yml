@@ -1,0 +1,33 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: "cards"
+  profiles:
+    active: "prod"
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  rabbitmq: # even if we don't provide this configuration still rabbitmq will work because these are default value of the rabbitmq
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
+
+management: # default spring boot actuator doesn't expose actuator endpoint so we need to make it enabled
+  endpoints:
+    web:
+      exposure:
+        include: "*" # by this * we are enabling all actuator endpoints
