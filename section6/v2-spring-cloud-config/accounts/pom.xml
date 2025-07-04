@@ -55,6 +55,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+<!--			We are trying to setup both SPring cloud bus and message queue with rabbitQ integration-->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -20,13 +20,13 @@ spring:
     show-sql: true
   config:
     import: "optional:configserver:http://localhost:8071/"
-  rabbitmq: # even if we don't provide this configuration still rabbitmq will work because these are default value of the rabbitmq
+  rabbitmq: # these creds establish a link between the microservices and the message. even if we don't provide this configuration, still rabbitmq will work because these are default value of the rabbitmq and spring boot itself use these coreds to conenct to rabbitMQ
     host: "localhost"
     port: 5672
     username: "guest"
     password: "guest"
-
-management: # default spring boot actuator doesn't expose actuator endpoint so we need to make it enabled
+# once busrefresh API invokes to any of the microservices instances, behind the scenes my Spring Cloud Bus since it detected a changed happened on the confug server version, it will refresh all the microservices instances which are registered with the rabbitmq
+management: # the default spring boot actuator doesn't expose actuator endpoint so we need to make it enabled
   endpoints:
     web:
       exposure:
