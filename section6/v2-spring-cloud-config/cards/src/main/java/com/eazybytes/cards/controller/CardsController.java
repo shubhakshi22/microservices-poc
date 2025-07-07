@@ -39,8 +39,8 @@ public class CardsController {
 
     private final ICardsService iCardsService;
 
-//    @Value("${build.version}")
-//    private String buildVersion;
+    @Value("${build.version}")
+    private String buildVersion;
 
     @Autowired
     private Environment environment;
@@ -177,30 +177,30 @@ public class CardsController {
         }
     }
 
-//    @Operation(
-//            summary = "Get Build information",
-//            description = "Get Build information that is deployed into cards microservice"
-//    )
-//    @ApiResponses({
-//            @ApiResponse(
-//                    responseCode = "200",
-//                    description = "HTTP Status OK"
-//            ),
-//            @ApiResponse(
-//                    responseCode = "500",
-//                    description = "HTTP Status Internal Server Error",
-//                    content = @Content(
-//                            schema = @Schema(implementation = ErrorResponseDto.class)
-//                    )
-//            )
-//    }
-//    )
-//    @GetMapping("/build-info")
-//    public ResponseEntity<String> getBuildInfo() {
-//        return ResponseEntity
-//                .status(HttpStatus.OK)
-//                .body(buildVersion);
-//    }
+    @Operation(
+            summary = "Get Build information",
+            description = "Get Build information that is deployed into cards microservice"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    }
+    )
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getBuildInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(buildVersion);
+    }
 
     @Operation(
             summary = "Get Java version",
