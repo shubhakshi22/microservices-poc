@@ -1,0 +1,29 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: "loans"
+  profiles:
+    active: "prod"
+  datasource:
+    url: jdbc:mysql://localhost:3307/loansdb
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+  sql:
+    init:
+      mode: always
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+#  rabbitmq: # even if we don't provide this configuration still rabbitmq will work because these are default value of the rabbitmq
+#    host: "localhost"
+#    port: 5672
+#    username: "guest"
+#    password: "guest"
+
+management: # default spring boot actuator doesn't expose actuator endpoint so we need to make it enabled
+  endpoints:
+    web:
+      exposure:
+        include: "*" # by this * we are enabling all actuator endpoints
